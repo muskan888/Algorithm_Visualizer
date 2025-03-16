@@ -1,0 +1,406 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+    
+    /* Algorithm colors */
+    --algo-blue: 210 100% 66%;
+    --algo-red: 0 91% 71%;
+    --algo-green: 142 76% 56%;
+    --algo-yellow: 48 100% 67%;
+    --algo-purple: 286 100% 71%;
+    --algo-cyan: 187 100% 69%;
+    --algo-gray: 220 13% 69%;
+    
+    /* Pastel colors */
+    --pastel-lavender: 268 100% 87%;
+    --pastel-mint: 160 100% 87%;
+    --pastel-peach: 28 100% 87%;
+    --pastel-pink: 330 100% 90%;
+    --pastel-sky: 198 100% 87%;
+    --pastel-yellow: 47 100% 87%;
+    --pastel-coral: 5 100% 85%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+    
+    /* Algorithm colors - slightly adjusted for dark mode */
+    --algo-blue: 210 100% 66%;
+    --algo-red: 0 91% 71%;
+    --algo-green: 142 76% 56%;
+    --algo-yellow: 48 95% 67%;
+    --algo-purple: 286 100% 71%;
+    --algo-cyan: 187 100% 69%;
+    --algo-gray: 220 13% 69%;
+    
+    /* Pastel colors - darker variants for dark mode */
+    --pastel-lavender: 268 70% 77%;
+    --pastel-mint: 160 70% 77%;
+    --pastel-peach: 28 70% 77%;
+    --pastel-pink: 330 70% 80%;
+    --pastel-sky: 198 70% 77%;
+    --pastel-yellow: 47 70% 77%;
+    --pastel-coral: 5 70% 75%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-gradient-to-br from-[hsl(var(--pastel-lavender)/80)] via-[hsl(var(--pastel-sky)/60)] to-[hsl(var(--pastel-mint)/70)] text-foreground min-h-screen;
+  }
+}
+
+/* Glass panel effect */
+.glass-panel {
+  @apply backdrop-blur-sm border border-white/20 shadow-md rounded-lg;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Glassmorphism card effect */
+.glassmorphism {
+  @apply backdrop-blur-md bg-white/20 dark:bg-slate-900/30 border border-white/30 dark:border-white/10 shadow-lg rounded-xl transition-all duration-300 hover:shadow-xl;
+}
+
+/* Neumorphism card effect - light */
+.neumorphism-light {
+  @apply bg-slate-100 rounded-xl shadow-[5px_5px_15px_rgba(0,0,0,0.1),-5px_-5px_15px_rgba(255,255,255,0.8)] transition-all duration-300;
+}
+
+/* Neumorphism card effect - dark */
+.neumorphism-dark {
+  @apply bg-slate-800 rounded-xl shadow-[5px_5px_15px_rgba(0,0,0,0.7),-5px_-5px_15px_rgba(255,255,255,0.1)] transition-all duration-300;
+}
+
+/* Code block styling */
+.code-block {
+  @apply font-mono text-xs p-2 bg-slate-900 dark:bg-slate-800 rounded-md;
+}
+
+.code-line {
+  @apply whitespace-pre;
+}
+
+.code-line-active {
+  @apply bg-algo-yellow/20 font-bold text-white;
+}
+
+/* Algorithm card styling */
+.algorithm-select-card {
+  @apply cursor-pointer p-4 hover:shadow-lg transition-all duration-200 border-0 overflow-hidden;
+}
+
+/* Algorithm controls styling */
+.algorithm-control-btn {
+  @apply rounded-full p-2 hover:bg-slate-600 text-white;
+}
+
+/* Algorithm colors */
+.bg-algo-blue {
+  @apply bg-[hsl(var(--algo-blue))];
+}
+
+.bg-algo-red {
+  @apply bg-[hsl(var(--algo-red))];
+}
+
+.bg-algo-green {
+  @apply bg-[hsl(var(--algo-green))];
+}
+
+.bg-algo-yellow {
+  @apply bg-[hsl(var(--algo-yellow))];
+}
+
+.bg-algo-purple {
+  @apply bg-[hsl(var(--algo-purple))];
+}
+
+.bg-algo-cyan {
+  @apply bg-[hsl(var(--algo-cyan))];
+}
+
+.bg-algo-gray {
+  @apply bg-[hsl(var(--algo-gray))];
+}
+
+.text-algo-blue {
+  @apply text-[hsl(var(--algo-blue))];
+}
+
+.text-algo-red {
+  @apply text-[hsl(var(--algo-red))];
+}
+
+.text-algo-green {
+  @apply text-[hsl(var(--algo-green))];
+}
+
+.text-algo-yellow {
+  @apply text-[hsl(var(--algo-yellow))];
+}
+
+.text-algo-purple {
+  @apply text-[hsl(var(--algo-purple))];
+}
+
+.text-algo-cyan {
+  @apply text-[hsl(var(--algo-cyan))];
+}
+
+.text-algo-gray {
+  @apply text-[hsl(var(--algo-gray))];
+}
+
+/* Pastel background colors */
+.bg-pastel-lavender {
+  @apply bg-[hsl(var(--pastel-lavender))];
+}
+
+.bg-pastel-mint {
+  @apply bg-[hsl(var(--pastel-mint))];
+}
+
+.bg-pastel-peach {
+  @apply bg-[hsl(var(--pastel-peach))];
+}
+
+.bg-pastel-pink {
+  @apply bg-[hsl(var(--pastel-pink))];
+}
+
+.bg-pastel-sky {
+  @apply bg-[hsl(var(--pastel-sky))];
+}
+
+.bg-pastel-yellow {
+  @apply bg-[hsl(var(--pastel-yellow))];
+}
+
+.bg-pastel-coral {
+  @apply bg-[hsl(var(--pastel-coral))];
+}
+
+.text-pastel-lavender {
+  @apply text-[hsl(var(--pastel-lavender))];
+}
+
+.text-pastel-mint {
+  @apply text-[hsl(var(--pastel-mint))];
+}
+
+.text-pastel-peach {
+  @apply text-[hsl(var(--pastel-peach))];
+}
+
+.text-pastel-pink {
+  @apply text-[hsl(var(--pastel-pink))];
+}
+
+.text-pastel-sky {
+  @apply text-[hsl(var(--pastel-sky))];
+}
+
+.text-pastel-yellow {
+  @apply text-[hsl(var(--pastel-yellow))];
+}
+
+.text-pastel-coral {
+  @apply text-[hsl(var(--pastel-coral))];
+}
+
+/* Animation for algorithm visualization */
+@keyframes bar-highlight {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.visualization-bar {
+  @apply transition-all duration-300;
+}
+
+.visualization-bar.highlight {
+  animation: bar-highlight 1.5s infinite;
+}
+
+/* Landing page animations */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-float {
+  animation: float 5s infinite ease-in-out;
+}
+
+/* Gradient animated text */
+.animated-gradient-text {
+  @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-300% animate-gradient-shift text-transparent bg-clip-text;
+}
+
+/* Hover effects for cards */
+.card-hover-effect {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+/* Rainbow border animated */
+.rainbow-border {
+  @apply relative;
+}
+
+.rainbow-border::before {
+  content: '';
+  @apply absolute inset-0 rounded-lg -z-10 animate-gradient-shift;
+  background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+  background-size: 300% 300%;
+  padding: 2px;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Micro-interaction for icons */
+.icon-spin-hover:hover {
+  @apply animate-rotate;
+}
+
+.icon-ping-hover:hover {
+  @apply animate-ping-slow;
+}
+
+.icon-pulse-hover:hover {
+  @apply animate-pulse;
+}
+
+/* Glow effect */
+.glow {
+  @apply shadow-[0_0_15px_rgba(255,192,203,0.6)];
+}
+
+.glow-hover:hover {
+  @apply shadow-[0_0_15px_rgba(255,192,203,0.6)];
+}
+
+/* New additions for enhanced landing page */
+@keyframes bg-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-bg-shift {
+  animation: bg-shift 10s ease infinite;
+  background-size: 300% 300%;
+}
+
+.hero-gradient {
+  background: linear-gradient(-45deg, #F2FCE2, #FEF7CD, #FFDEE2, #E5DEFF);
+  background-size: 400% 400%;
+  animation: bg-shift 15s ease infinite;
+}
+
+.blurred-circle {
+  @apply absolute rounded-full blur-3xl opacity-20;
+}
+
+@keyframes shimmer {
+  0% { mask-position: 150%; }
+  100% { mask-position: -50%; }
+}
+
+.shimmer {
+  animation: shimmer 2.5s linear infinite;
+  mask: linear-gradient(90deg, transparent, white, transparent);
+  mask-size: 200%;
+}
+
+.card-3d-effect {
+  @apply transition-all duration-300;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card-3d-effect:hover {
+  transform: translateY(-5px) rotateX(5deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card {
+  @apply border border-pink-300/40 hover:border-pink-400/70 rounded-xl p-6 transition-all duration-500 bg-gradient-to-br from-white/50 to-pink-100/40 backdrop-blur-sm hover:from-white/60 hover:to-pink-100/50;
+}
+
+/* Pastel buttons */
+.pastel-btn-primary {
+  @apply px-6 py-3 bg-gradient-to-r from-[hsl(var(--pastel-pink))] to-[hsl(var(--pastel-lavender))] 
+         hover:from-[hsl(var(--pastel-pink)/90)] hover:to-[hsl(var(--pastel-lavender)/90)]
+         text-gray-700 font-medium rounded-lg shadow-md transition-all duration-300
+         hover:shadow-lg hover:translate-y-[-2px];
+}
+
+.pastel-btn-secondary {
+  @apply px-6 py-3 bg-white/70 hover:bg-white/90 backdrop-blur-sm
+         border border-gray-200 text-gray-700 font-medium rounded-lg shadow-sm
+         transition-all duration-300 hover:shadow-md hover:translate-y-[-2px];
+}
+
+/* Pastel cards */
+.pastel-card {
+  @apply bg-white/70 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm
+         transition-all duration-300 hover:shadow-md hover:bg-white/80;
+}
